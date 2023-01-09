@@ -4,6 +4,8 @@ import Activity from "./components/Activity/Activity";
 import DetailCountries from "./components/DetailCountries/DetailCountries";
 import { Routes, Route } from "react-router-dom";
 import "./index.css";
+import axios from "axios";
+axios.defaults.baseURL = `http://localhost:3001/`;
 
 function App() {
   return (
