@@ -1,0 +1,35 @@
+.background{
+min-height: 15vh;
+ background-color: #fffffe;
+}
+.paginated_container{
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+margin-top: 1rem;
+margin-bottom: 1rem;
+}
+.paginated_container button{
+    width: 40px;
+    height: 40px;
+    font-family: inherit;
+    font-weight: 500px;
+    font-size: 16px;
+    margin: 0 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #272343;
+    border: 1px solid #272343;
+    transition: all 0.3s ease;
+    background: transparent;
+}
+
+.paginated_container button:hover{
+    font-weight: 900px;
+    background: #ffd803;
+}
+
+ .paginated_container .active{
+    font-weight: 900px;
+    background: #ffd803;
+}
