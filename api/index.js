@@ -19,18 +19,18 @@
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const server = require("./src/app.js");
 const { conn, Country } = require("./src/db.js");
-const axios = require("axios");
 const { traerCountryDb } = require("./db_api/traerCountryDb");
-const url = "https://restcountries.com/v3.1/all";
+require("dotenv").config();
 
+const { PORT } = process.env;
 // Syncing all the models at once.
 conn.sync({ force: false }).then(() => {
-  server.listen(3001, async () => {
+  server.listen(PORT, async () => {
     let countries_pi = Country.findAll();
     if (!countries_pi) {
       await traerCountryDb();
     }
 
-    console.log("%s listening at 3001"); // eslint-disable-line no-console
+    console.log("%s listening at", PORT); // eslint-disable-line no-console
   });
 });
