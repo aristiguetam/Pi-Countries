@@ -1,9 +1,9 @@
 const axios = require("axios");
 const { Country } = require("../src/db");
 
-const url = "https://restcountries.com/v3.1/all";
+// const url = "https://restcountries.com/v3.1/all";
 async function traerCountryDb() {
-  const api = await axios.get(url);
+  const api = await axios.get(`https://restcountries.com/v3.1/all`);
   const dataApi = await api.data.map((dato) => {
     return {
       id: dato.cca3,
