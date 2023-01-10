@@ -22,7 +22,9 @@ const bringCountry = async () => {
 
 router.get("/", async (req, res) => {
   try {
-    await bringCountry();
+    if (!Country.length) {
+      await bringCountry();
+    }
     const { name } = req.query;
     if (!name) {
       const countries = await Country.findAll({
