@@ -9,9 +9,9 @@ const GetActivities = () => {
   //   e.preventDefault();
   //   dispatch(getActivity());
   // };
-  useEffect(() => {
-    dispatch(getActivity());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(getActivity());
+  // }, [dispatch]);
   // console.log(activity);
   return (
     <div>
