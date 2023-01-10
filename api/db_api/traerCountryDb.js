@@ -17,8 +17,7 @@ async function traerCountryDb() {
     };
   });
 
-  await Country.bulkCreate(dataApi);
-  console.log("tamos ready!");
+  return await Country.bulkCreate(dataApi);
 }
 
 module.exports = { traerCountryDb };
