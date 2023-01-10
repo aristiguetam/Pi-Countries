@@ -3,30 +3,35 @@ const { Country, Activity } = require("./../db");
 const axios = require("axios");
 const router = Router();
 const bringMeCountry = async () => {
-  const api = await axios.get(`https://restcountries.com/v3.1/all`);
-  const dataApi = await api.data.map((dato) => {
-    return {
-      id: dato.cca3,
-      name: dato.name.common,
-      image: dato.flags.png,
-      continent: dato.region,
-      capital: dato.capital ? dato.capital[0] : "Capital not found",
-      subregion: dato.subregion ? dato.subregion : "subregion not found",
-      area: dato.area,
-      population: dato.population,
-    };
-  });
-  return dataApi;
+  try {
+    const { data } = await axios.get(`https://restcountries.com/v3.1/all`);
+    return data.map((dato) => {
+      return {
+        id: dato.cca3,
+        name: dato.name.common,
+        image: dato.flags.png,
+        continent: dato.region,
+        capital: dato.capital ? dato.capital[0] : "Capital not found",
+        subregion: dato.subregion ? dato.subregion : "subregion not found",
+        area: dato.area,
+        population: dato.population,
+      };
+    });
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
 };
 
 router.get("/", async (req, res) => {
   const { name } = req.query;
-  const apiRest = bringMeCountry();
+
   try {
     let country = await Country.findAll();
-    if (!country.length) await Country.bulkCreate(apiRest);
+    if (!country.length) await Country.bulkCreate(await bringMeCountry());
   } catch (error) {
     console.log(error);
+    return res.status(404).send({ error });
   }
   try {
     if (!name) {
