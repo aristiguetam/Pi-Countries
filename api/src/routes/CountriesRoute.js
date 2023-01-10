@@ -2,9 +2,27 @@ const { Router } = require("express");
 const { Country, Activity } = require("./../db");
 
 const router = Router();
+const bringCountry = async () => {
+  const api = await axios.get(`https://restcountries.com/v3.1/all`);
+  const dataApi = await api.data.map((dato) => {
+    return {
+      id: dato.cca3,
+      name: dato.name.common,
+      image: dato.flags.png,
+      continent: dato.region,
+      capital: dato.capital ? dato.capital[0] : "Capital not found",
+      subregion: dato.subregion ? dato.subregion : "subregion not found",
+      area: dato.area,
+      population: dato.population,
+    };
+  });
+
+  return await Country.bulkCreate(dataApi);
+};
 
 router.get("/", async (req, res) => {
   try {
+    await bringCountry();
     const { name } = req.query;
     if (!name) {
       const countries = await Country.findAll({
