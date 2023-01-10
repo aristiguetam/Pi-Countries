@@ -26,11 +26,6 @@ const { PORT } = process.env;
 // Syncing all the models at once.
 conn.sync({ alter: true }).then(() => {
   server.listen(PORT, async () => {
-    // let countries_pi = Country.findAll();
-    // if (!countries_pi) {
-    //   await traerCountryDb();
-    // }
-
     console.log("%s listening at", PORT); // eslint-disable-line no-console
   });
 });

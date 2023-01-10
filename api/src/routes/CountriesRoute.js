@@ -2,6 +2,7 @@ const { Router } = require("express");
 const { Country, Activity } = require("./../db");
 const axios = require("axios");
 const router = Router();
+
 const bringMeCountry = async () => {
   const api = await axios.get(`https://restcountries.com/v3.1/all`);
   const dataApi = await api.data.map((dato) => {
@@ -25,7 +26,7 @@ router.get("/", async (req, res) => {
     let country = await Country.findAll();
     if (!country.length) await Country.bulkCreate(bringMeCountry());
   } catch (error) {
-    console.log(error);
+    res.status(404).send({ error });
   }
   try {
     if (!name) {

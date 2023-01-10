@@ -24,7 +24,7 @@ const PrincipalRoute = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        await dispatch(getCountries());
+        dispatch(getCountries());
         setLoading(false);
       } catch (error) {
         console.error(error);
