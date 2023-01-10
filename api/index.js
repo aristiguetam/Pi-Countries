@@ -24,7 +24,7 @@ require("dotenv").config();
 
 const { PORT } = process.env;
 // Syncing all the models at once.
-conn.sync({ force: false }).then(() => {
+conn.sync({ alter: true }).then(() => {
   server.listen(PORT, async () => {
     let countries_pi = Country.findAll();
     if (!countries_pi) {
