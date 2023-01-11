@@ -6,7 +6,7 @@ import { Routes, Route } from "react-router-dom";
 import "./index.css";
 import axios from "axios";
 // axios.defaults.baseURL = `http://localhost:3001/`;
-axios.defaults.baseURL = `https://picountriesdeploy-production.up.railway.app`;
+axios.defaults.baseURL = `https://picountriesdeploy-production.up.railway.app/`;
 
 function App() {
   return (
