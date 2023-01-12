@@ -28,6 +28,9 @@
     flex-direction: row;
 
 }
+.container_Activities{
+    margin: 2%;
+}
 
 .div_activities {
     margin: 20px;
