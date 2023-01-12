@@ -83,10 +83,13 @@
 
 @media (max-width: 600px) {
     .divOver {
-        height: 160vh;
-        width: 160vw;
+        height: 150vh;
+        width: 150vw;
     }
 
+    .container {
+        bottom: 25%;
+    }
 
 }
 
