@@ -68,6 +68,7 @@
         height: 150vh;
         width: 100vh;
     }
+    
 
     .container_titulo {
         display: flex;
@@ -81,4 +82,21 @@
         align-items: center;
         justify-content: center;
     }
+}
+@media (max-width: 400px) {
+    .container {
+        margin: 0 5rem 0 16.1rem;
+    }
+}
+@media (max-width: 376px) {
+    .container {
+        margin: 0 5rem 0 11rem;
+    }
+
+}
+@media (max-width: 361px) {
+    .container {
+        margin: 0 5rem 0 13rem;
+    }
+
 }

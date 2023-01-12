@@ -36,11 +36,12 @@
 }
 
 .svg {
-    /* font-size: 15px; */
+    display: flex;
+    flex-wrap: wrap;
     margin-top: 0.1px;
     position: absolute;
     background-color: white;
-    padding: 10.4px 0px 0px 5px;
+    padding: 11px 0px 5px 5px;
     border-radius: 5px 0 0 5px;
 }
 
