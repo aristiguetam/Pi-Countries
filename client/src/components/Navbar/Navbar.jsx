@@ -47,85 +47,87 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={styles.navbar}>
-      <div className={styles.container}>
-        <button className={styles.btni} onClick={() => navigate(-1)}>
-          Go back
-        </button>
-        <div className={styles.search}>
-          <label className={styles.svg}>
-            <SvgComponent />
-          </label>
-          <input
-            type="text"
-            name="search"
-            value={input}
-            placeholder="Country"
-            onChange={handleInputChange}
-            onKeyDown={handleKeyDown}
-          />
-          <button className={styles.btn} type="submit" onClick={handleSubmit}>
-            Search
+    <>
+      <nav className={styles.navbar}>
+        <div className={styles.container}>
+          <button className={styles.btni} onClick={() => navigate(-1)}>
+            Go back
           </button>
-        </div>
-        <header className={styles.header}>
-          <select
-            className={styles.select_css}
-            onChange={handleFilterContinent}
-          >
-            <option value="all">Continents</option>
-            <option value="all" key="all">
-              all Continent
-            </option>
-            <option value="Africa" key="Africa">
-              Africa
-            </option>
-            <option value="Antarctic" key="Antarctica">
-              Antarctica
-            </option>
-            <option value="Asia" key="Asia">
-              Asia
-            </option>
-            <option value="Europe" key="Europe">
-              Europe
-            </option>
-            <option value="Americas" key="America">
-              America
-            </option>
-            <option value="Oceania" key="Oceania">
-              Oceania
-            </option>
-          </select>
+          <div className={styles.search}>
+            <label className={styles.svg}>
+              <SvgComponent />
+            </label>
+            <input
+              type="text"
+              name="search"
+              value={input}
+              placeholder="Country"
+              onChange={handleInputChange}
+              onKeyDown={handleKeyDown}
+            />
+            <button className={styles.btn} type="submit" onClick={handleSubmit}>
+              Search
+            </button>
+          </div>
+          <header className={styles.header}>
+            <select
+              className={styles.select_css}
+              onChange={handleFilterContinent}
+            >
+              <option value="all">Continents</option>
+              <option value="all" key="all">
+                all Continent
+              </option>
+              <option value="Africa" key="Africa">
+                Africa
+              </option>
+              <option value="Antarctic" key="Antarctica">
+                Antarctica
+              </option>
+              <option value="Asia" key="Asia">
+                Asia
+              </option>
+              <option value="Europe" key="Europe">
+                Europe
+              </option>
+              <option value="Americas" key="America">
+                America
+              </option>
+              <option value="Oceania" key="Oceania">
+                Oceania
+              </option>
+            </select>
 
-          <select className={styles.select_css} onChange={handlePopulations}>
-            <option>Popularity</option>
-            <option value="max" key="max">
-              Mas populares
-            </option>
-            <option value="min" key="min">
-              menos populares
-            </option>
-          </select>
-          <select className={styles.select_css} onChange={handleAlfhabetical}>
-            <option>Alphabetical</option>
-            <option value="Asc" key="Asc">
-              Ascendants
-            </option>
-            <option value="Desc" key="Desc">
-              Descendants
-            </option>
-          </select>
-        </header>
-      </div>
-      <div className={styles.containerbtn}>
+            <select className={styles.select_css} onChange={handlePopulations}>
+              <option>Popularity</option>
+              <option value="max" key="max">
+                Mas populares
+              </option>
+              <option value="min" key="min">
+                menos populares
+              </option>
+            </select>
+            <select className={styles.select_css} onChange={handleAlfhabetical}>
+              <option>Alphabetical</option>
+              <option value="Asc" key="Asc">
+                Ascendants
+              </option>
+              <option value="Desc" key="Desc">
+                Descendants
+              </option>
+            </select>
+          </header>
+        </div>
+      </nav>
+      <div className={styles.btn_created}>
         <button
-          className={styles.btn}
+          className={styles.btnA}
           onClick={() => navigate("/principal/activities")}
         >
           Create Activity
         </button>
       </div>
-    </nav>
+    </>
   );
 };
 
