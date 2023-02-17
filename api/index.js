@@ -24,9 +24,9 @@ const { conn } = require("./src/db.js");
 const bringMeCountry = require("./bringMeCountry");
 require("dotenv").config();
 
-const { PORT } = process.env || 3001;
+const PORT = process.env.PORT || 3001;
 // Syncing all the models at once.
-conn.sync({ force: false }).then(() => {
+conn.sync({ force: true }).then(() => {
   server.listen(PORT, async () => {
     await bringMeCountry();
     console.log("%s listening at", PORT); // eslint-disable-line no-console
