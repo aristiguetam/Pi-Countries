@@ -1,3 +1,5 @@
+/** @format */
+
 //                       _oo0oo_
 //                      o8888888o
 //                      88" . "88
@@ -22,7 +24,7 @@ const { conn } = require("./src/db.js");
 const bringMeCountry = require("./bringMeCountry");
 require("dotenv").config();
 
-const { PORT } = process.env;
+const { PORT } = process.env || 3001;
 // Syncing all the models at once.
 conn.sync({ force: false }).then(() => {
   server.listen(PORT, async () => {
